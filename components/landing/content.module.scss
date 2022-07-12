@@ -1,0 +1,49 @@
+@import "~/styles/constants";
+@import "~/styles/noSelect";
+@import "~/styles/titles";
+
+// Awful copy-pasta, try to remove:
+.container {
+  min-height: 80vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 100%;
+  @media (max-width: $breakpoint-phone) {
+    max-width: 564px;
+  }
+  margin-left: auto;
+  margin-right: auto;
+
+  font-family: "Manrope", sans-serif;
+}
+
+.containerDark {
+  @extend .container;
+  background: #1c1c21;
+  color: white;
+}
+
+.main {
+  max-width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.subtitle {
+  @extend .subtitle;
+  color: #dadada;
+}
+
+.chartContainerDoughnut {
+  width: 300px;
+  margin-top: -40px;
+  margin-bottom: -40px;
+}

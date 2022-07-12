@@ -1,0 +1,210 @@
+@import "~/styles/constants";
+@import "~/styles/noSelect";
+@import "~/styles/titles";
+
+.title {
+  @extend .title;
+  margin-top: 1rem;
+}
+
+.subtitle {
+  @extend .subtitle;
+  color: #dadada;
+}
+
+.chartContainerPie {
+  margin-top: 12px;
+  width: 200px;
+  @media (max-width: $breakpoint-phone) {
+    width: 150px;
+  }
+}
+
+.chartContainerDoughnut {
+  width: 300px;
+  margin-top: -40px;
+  margin-bottom: -40px;
+}
+
+.button {
+  background-color: #00a2ff;
+  border: none;
+  color: white;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  height: 56px;
+  width: 430px;
+  @media (max-width: $breakpoint-phone) {
+    width: 300px;
+  }
+  align-self: center;
+  border-radius: 10px;
+  cursor: pointer;
+  @include noSelect;
+}
+
+.code {
+  align-self: center;
+  background: #2f2f38;
+  border-radius: 5px;
+  border: 1px solid #ffffffcc;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.addressInput {
+  @extend .code;
+  margin-top: 12px;
+  width: 430px;
+  @media (max-width: $breakpoint-phone) {
+    width: 300px;
+  }
+  text-overflow: wrap;
+  overflow-wrap: break-word;
+}
+
+.space12 {
+  height: 12px;
+  background-color: transparent;
+}
+
+// Awful copy-pasta, try to remove:
+.container {
+  min-height: 80vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 100%;
+  @media (max-width: $breakpoint-phone) {
+    max-width: 564px;
+  }
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Manrope", sans-serif;
+}
+
+.containerLight {
+  @extend .container;
+  background-color: #ebf3fe;
+
+  .walletButtonContainer {
+    margin-top: 1em;
+    margin-bottom: auto;
+  }
+
+  .myProfileTitle {
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .totalStakedContainer {
+    margin-top: 2rem;
+
+    padding-bottom: 24px;
+  }
+}
+
+.containerDark {
+  @extend .container;
+}
+
+.main {
+  max-width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  border-top: 1px solid #eaeaea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.title a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.title a:hover,
+.title a:focus,
+.title a:active {
+  text-decoration: underline;
+}
+
+.title,
+.subtitle,
+.description {
+  text-align: center;
+}
+
+.description {
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin-top: 3rem;
+}
+
+.card {
+  margin: 1rem;
+  padding: 1.5rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  width: 45%;
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+  color: #0070f3;
+  border-color: #0070f3;
+}
+
+.card h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}

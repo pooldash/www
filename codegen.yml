@@ -1,0 +1,17 @@
+schema: ./lib/api/graphql/Schema.ts
+documents: ./gql/queries/**/*.ts
+generates:
+  ./lib/api/graphql/generated/resolvers-types.ts:
+    plugins:
+      - typescript
+      - typescript-resolvers
+    config:
+      avoidOptionals: true
+  
+  ./gql/generated/types.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+    config:
+      avoidOptionals: true
+      skipTypename: true

@@ -1,0 +1,17 @@
+.tableRow {
+  padding-left: 12px;
+  padding-right: 12px;
+  text-align: center;
+  width: 100px;
+}
+
+.bigTableRow {
+  @extend .tableRow;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.table {
+  margin-left: auto;
+  margin-right: auto;
+}

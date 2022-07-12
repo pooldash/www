@@ -1,0 +1,23 @@
+.inputWrapper {
+  margin-bottom: 12px;
+}
+
+.addressWrapper {
+  @extend .inputWrapper;
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+
+  .checkboxWrapper {
+    display: flex;
+    flex-direction: row;
+    div {
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+  }
+}
+
+.amountWrapper {
+  @extend .inputWrapper;
+}

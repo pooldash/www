@@ -1,0 +1,7 @@
+@import "~/styles/titles";
+
+.sectionHeader {
+  @extend .subtitle;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}

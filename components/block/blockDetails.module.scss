@@ -1,0 +1,21 @@
+@import "~/styles/constants";
+@import "~/styles/noSelect";
+@import "~/styles/titles";
+
+.container {
+  color: black;
+}
+
+.megaText {
+  font-weight: 900;
+  font-size: 5rem;
+  @media (max-width: $breakpoint-phone) {
+    font-size: 3rem;
+  }
+  text-align: center;
+}
+
+.explainerText {
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 12px;
+}

@@ -1,0 +1,47 @@
+@import "~/styles/titles";
+@import "~/styles/constants";
+
+.container {
+  width: 430px;
+  @media (max-width: $breakpoint-phone) {
+    width: 320px;
+  }
+}
+
+.megaText {
+  font-weight: 900;
+  font-size: 5rem;
+  @media (max-width: $breakpoint-phone) {
+    font-size: 3rem;
+  }
+  max-width: 100%;
+  text-align: center;
+}
+
+.fakeChartLegend {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.stakedExplainer {
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 12px;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.poktAmount {
+  color: black;
+  font-size: 2rem;
+  font-weight: 600;
+  justify-content: center;
+  text-align: center;
+}
+
+.usdAmount {
+  color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  text-align: center;
+}

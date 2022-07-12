@@ -1,0 +1,24 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "cSpell.words": [
+    "Addrs",
+    "Berbix",
+    "datasources",
+    "jsrender",
+    "keybase",
+    "patternomaly",
+    "pgbouncer",
+    "pokt",
+    "Staker",
+    "stakers",
+    "Supabase",
+    "Thirdweb",
+    "Unstake",
+    "upokt",
+    "VERCEL"
+  ],
+  "editor.formatOnSave": true,
+  "files.saveConflictResolution": "overwriteFileOnDisk"
+}

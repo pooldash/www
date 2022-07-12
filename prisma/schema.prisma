@@ -1,0 +1,139 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-1.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model PocketAddress {
+  id         String    @id
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+
+  publicKey  String @unique
+  privateKey String @unique
+  address    String @unique
+
+  ethAddr    String  @unique
+  adminNotes String?
+}
+
+model RebaseAttempt {
+  id          BigInt    @id @default(autoincrement())
+  blockHeight BigInt    @db.BigInt
+  status      String
+  created_at  DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+model RebaseLock {
+  id          BigInt    @id @default(autoincrement())
+  blockHeight BigInt    @unique @db.BigInt
+  created_at  DateTime? @default(now()) @db.Timestamptz(6)
+}
+
+model Ledger {
+  id            BigInt    @id @default(autoincrement())
+  ethAddr       String
+  virtualTxNum  BigInt
+  blockHeight   BigInt    @db.BigInt
+  type          String
+  amount        BigInt
+  balanceBefore BigInt
+  balanceAfter  BigInt
+  txHash        String?
+  date          DateTime?
+
+  @@unique([ethAddr, virtualTxNum], map: "Ledger_ethAddr_virtualTxNum_unique_constraint")
+  @@unique([ethAddr, blockHeight, type], map: "Ledger_ethAddr_blockHeight_type_unique_constraint")
+}
+
+model BlockBalances {
+  id          BigInt    @id @default(autoincrement())
+  ethAddr     String
+  blockHeight BigInt    @db.BigInt
+  balance     BigInt
+  percent     Float?
+  date        DateTime?
+
+  @@unique([ethAddr, blockHeight], map: "BlockBalances_ethAddr_blockHeight_unique_constraint")
+}
+
+model Validator {
+  name            String            @unique
+  poktAddr        String            @id @unique
+  ValidatorReward ValidatorReward[]
+  stakeHeight     BigInt?           @db.BigInt
+  stakeDate       DateTime?
+}
+
+model ValidatorReward {
+  id          BigInt    @id @default(autoincrement())
+  addr        String
+  validator   Validator @relation(fields: [addr], references: [poktAddr])
+  amount      BigInt
+  blockHeight BigInt
+  date        DateTime?
+
+  @@unique([addr, blockHeight], map: "ValidatorReward_addr_blockHeight_unique_constraint")
+}
+
+model RevenueLedger {
+  id            BigInt    @id @default(autoincrement())
+  virtualTxNum  BigInt    @unique
+  blockHeight   BigInt    @db.BigInt
+  type          String
+  amount        BigInt
+  balanceBefore BigInt
+  balanceAfter  BigInt
+  txHash        String?
+  date          DateTime?
+}
+
+model Cache {
+  id         BigInt   @id @default(autoincrement())
+  key        String
+  value      String
+  created_at DateTime
+}
+
+model DepositTransfer {
+  id             BigInt         @id @default(autoincrement())
+  transferTxHash String?        @unique
+  ethAddr        String
+  amount         BigInt
+  fee            BigInt
+  deposits       DepositAssoc[]
+  created_at     DateTime?      @default(now()) @db.Timestamptz(6)
+}
+
+model DepositAssoc {
+  id            BigInt          @id @default(autoincrement())
+  depositTxHash String          @unique
+  transferTxId  BigInt
+  transferTx    DepositTransfer @relation(fields: [transferTxId], references: [id])
+  created_at    DateTime?       @default(now()) @db.Timestamptz(6)
+}
+
+model HealthCheck {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  healthy    Boolean
+  notes      String?
+}
+
+model BerbixEvent {
+  id         BigInt    @id @default(autoincrement())
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  content    String?
+}
+
+model InternalTransfer {
+  id          BigInt    @id @default(autoincrement())
+  created_at  DateTime? @default(now()) @db.Timestamptz(6)
+  blockHeight BigInt    @db.BigInt
+  fromEthAddr String
+  toEthAddr   String
+  amount      BigInt
+}

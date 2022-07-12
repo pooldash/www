@@ -1,0 +1,39 @@
+@import "~/styles/titles";
+@import "~/styles/constants";
+
+.stakerContainer {
+  width: 430px;
+  @media (max-width: $breakpoint-phone) {
+    width: 300px;
+  }
+
+  margin-bottom: 24px;
+}
+
+.addressContainer {
+  display: flex;
+  flex-direction: row;
+
+  // hack, sorry
+  .addressText {
+    margin-right: 12px;
+  }
+}
+
+.addressText {
+  font-weight: 700;
+  color: black;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.explainerText {
+  color: rgba(0, 0, 0, 0.5);
+  width: 430px;
+  @media (max-width: $breakpoint-phone) {
+    width: 300px;
+  }
+}
+
